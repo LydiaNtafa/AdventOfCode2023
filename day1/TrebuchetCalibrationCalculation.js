@@ -3,24 +3,38 @@ const { readFileSync } = require("fs");
 class TrebuchetCalibrationCalculation {
     constructor(path){
         this.path = path;
-        this.values = this.readValues();
+        this.doc = this.readDoc();
     }
 
-    readValues = () => {
-        const input = readFileSync(this.path).toString();
+    readDoc = () => {
+        const input = readFileSync(this.path).toString(); 
         return input;
-    }
+    };
 
-    displayValues = () => {
-        console.log(this.values);
-    }
+    calculateSumOfValues = () => {
+        const splitText = this.doc.split("\n");
+        const arrayOfValues = splitText.map(this.decodeValuesFromText);
+        return arrayOfValues;
+    };
 
+    decodeValuesFromText = (str) => {
+        var nonNumberRegex = /[^0-9]/g;
+        var stringofNumbers = str.replace(nonNumberRegex, '');
+        if (stringofNumbers.length === 0) {
+            return 0;
+        }
+        if (stringofNumbers.length > 0) {
+            let calibrationValue = stringofNumbers[0] + stringofNumbers[stringofNumbers.length-1];
+            return parseInt(calibrationValue)
+        }
+        
+    };
 
 }
 
 const path = "./mockInput.txt";
 const Calculator = new TrebuchetCalibrationCalculation(path);
-Calculator.displayValues();
+console.log(Calculator.calculateSumOfValues());
 
 
 module.exports = TrebuchetCalibrationCalculation;
