@@ -1,7 +1,7 @@
 {
   "name": "adventofcode2023",
   "version": "1.0.0",
-  "description": "",
+  "description": "my solutions and test for Advent of Code 2024",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
