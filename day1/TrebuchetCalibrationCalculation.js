@@ -14,7 +14,11 @@ class TrebuchetCalibrationCalculation {
     calculateSumOfValues = () => {
         const splitText = this.doc.split("\n");
         const arrayOfValues = splitText.map(this.decodeValuesFromText);
-        return arrayOfValues;
+        let sum = 0;
+        for (var i in arrayOfValues) {
+            sum += arrayOfValues[i];
+        }
+        return sum;
     };
 
     decodeValuesFromText = (str) => {
@@ -32,7 +36,7 @@ class TrebuchetCalibrationCalculation {
 
 }
 
-const path = "./mockInput.txt";
+const path = "./input.txt";
 const Calculator = new TrebuchetCalibrationCalculation(path);
 console.log(Calculator.calculateSumOfValues());
 
