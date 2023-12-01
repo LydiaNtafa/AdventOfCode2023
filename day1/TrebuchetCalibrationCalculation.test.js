@@ -19,12 +19,18 @@ describe("Trebuchet Calibration Calculator", () =>{
     it("decodes the values from the file, checking if a number is spelled out", () =>{
         const path = "./mockInput.txt";
         const Calculator = new TrebuchetCalibrationCalculation(path);
-        expect(Calculator.decodeSpelledOutNumbersIntoNumbers("eightwothree")).toEqual("8wo3");
+        expect(Calculator.decodeSpelledOutNumbersIntoNumbers("eightwothree")).toEqual("e8t2ot3e");
     })
 
     it("calculates the sum of values", () =>{
         const path = "./mockInput.txt";
         const Calculator = new TrebuchetCalibrationCalculation(path);
         expect(Calculator.calculateSumOfValues()).toEqual(142);
+    })
+
+    it("calculates the sum of values for second phase's edge case", () =>{
+        const path = "./mockInput2.txt";
+        const Calculator = new TrebuchetCalibrationCalculation(path);
+        expect(Calculator.calculateSumOfValues()).toEqual(281);
     })
 })
