@@ -16,6 +16,12 @@ describe("Trebuchet Calibration Calculator", () =>{
         expect(Calculator.decodeValuesFromText("pqr3stu8vwx")).toEqual(38);
     })
 
+    it("decodes the values from the file, checking if a number is spelled out", () =>{
+        const path = "./mockInput.txt";
+        const Calculator = new TrebuchetCalibrationCalculation(path);
+        expect(Calculator.decodeValuesFromText("eightwothree")).toEqual(823);
+    })
+
     it("calculates the sum of values", () =>{
         const path = "./mockInput.txt";
         const Calculator = new TrebuchetCalibrationCalculation(path);
