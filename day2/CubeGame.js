@@ -21,7 +21,7 @@ class CubeGame {
                 let redCubes = this.findCubes("red", arrayOfGameArrays[i][j]);
                 let greenCubes = this.findCubes("green", arrayOfGameArrays[i][j]);
                 let blueCubes = this.findCubes("blue", arrayOfGameArrays[i][j]);
-                if (redCubes>12 || greenCubes>12 || blueCubes>14){
+                if (redCubes>12 || greenCubes>13 || blueCubes>14){
                     isGamePossible= false;
                     j=arrayOfGameArrays[i].length;
                 }
@@ -55,8 +55,8 @@ class CubeGame {
 
 }
 
-// const path = "./day2/mockInput.txt";
-// const Game = new CubeGame(path);
-// console.log(Game.calculateGames());
+const path = "./input.txt";
+const Game = new CubeGame(path);
+console.log(Game.calculateGames());
 
 module.exports = CubeGame;
