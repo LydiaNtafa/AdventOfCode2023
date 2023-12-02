@@ -17,5 +17,11 @@ describe("Cube Game", () => {
         expect(Game.createGameArray(`Game 51: 3 green, 1 blue; 1 red; 1 green, 7 blue\n`)).toEqual([ 51, ' 3 green, 1 blue', ' 1 red', ' 1 green, 7 blue\n' ]);
     })
     
+    it("finds the number of cubes per subset when colour is given", () => {
+        const path = "./mockInput.txt";
+        const Game = new CubeGame(path);
+        expect(Game.findCubes("red",`3 green, 1 blue`)).toEqual(0);
+        expect(Game.findCubes("blue",`3 green, 1 blue`)).toEqual(1);
+    })
     
 })
