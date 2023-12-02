@@ -55,8 +55,8 @@ class CubeGame {
 
 }
 
-// const path = "./day2/input.txt";
-// const Game = new CubeGame(path);
-// console.log(Game.calculateGames());
+const path = "./input.txt";
+const Game = new CubeGame(path);
+console.log(Game.calculateGames());
 
 module.exports = CubeGame;
