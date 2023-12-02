@@ -12,13 +12,23 @@ class CubeGame {
     };
 
     calculateGames= () => {
-        sum = 0;
+        let sum = 0;
         const splitText = this.doc.split("\n");
         const arrayOfGameArrays = splitText.map(this.createGameArray);
         for (let i=0; i<arrayOfGameArrays.length; i++){
-            for (let j=1; j<arrayOfGameArrays[i].length; i++){
+            var isGamePossible = true;
+            for (let j=1; j<arrayOfGameArrays[i].length; j++){
                 let redCubes = this.findCubes("red", arrayOfGameArrays[i][j]);
-                
+                let greenCubes = this.findCubes("green", arrayOfGameArrays[i][j]);
+                let blueCubes = this.findCubes("blue", arrayOfGameArrays[i][j]);
+                if (redCubes>12 || greenCubes>12 || blueCubes>14){
+                    isGamePossible= false;
+                    j=arrayOfGameArrays[i].length;
+                }
+            }
+            if (isGamePossible) {
+                sum +=arrayOfGameArrays[i][0];
+            }
         }
         return sum;
     }
@@ -45,7 +55,8 @@ class CubeGame {
 
 }
 
-const path = "./mockInput.txt";
-const Game = new CubeGame(path);
+// const path = "./day2/mockInput.txt";
+// const Game = new CubeGame(path);
+// console.log(Game.calculateGames());
 
 module.exports = CubeGame;
