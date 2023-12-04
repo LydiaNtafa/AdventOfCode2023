@@ -24,7 +24,11 @@ describe("Gondola Lift", () => {
         ]);
     })
 
-    
+    it("checks if a number adjacent to a symbol and add it to sum", () => {
+        const path = "./mockInput.txt";
+        const Lift = new GondolaLift(path);
+        expect(Lift.addUpAllThePartNumbers()).toEqual(4361);
+    })
 
 
 })
