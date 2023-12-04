@@ -11,10 +11,20 @@ class GondolaLift {
         return input;
     };
 
+    addUpAllThePartNumbers= () => {
+        const splitText = this.doc.split("\n");
+        const array2D =[];
+        splitText.forEach((line) => {
+            line=line.replace("\r", '');
+            array2D.push(line.split(""));
+        })
+        
+    }
+
 }
 
 const path = "./mockInput.txt";
 const Lift = new GondolaLift(path);
-console.log(Lift.doc);
+console.log(Lift.addUpAllThePartNumbers());
 
 module.exports = GondolaLift;
