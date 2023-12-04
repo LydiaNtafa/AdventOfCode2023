@@ -23,9 +23,9 @@ class GondolaLift {
                     number += array2D[i][j];
                     if (!isAdjacent){
                         for(let x=i-1; x<=i+1; x++){
-                            if(x>0 && x<array2D.length){
+                            if(x>=0 && x<array2D.length){
                                 for (let y=j-1; y<=j+1; y++){
-                                    if(y>0 && y<array2D[i].length){
+                                    if(y>=0 && y<array2D[i].length){
                                         if(!nonSymbolChars.includes(array2D[x][y])){
                                             isAdjacent= true;
                                             x=i+2;
@@ -54,6 +54,7 @@ class GondolaLift {
         const array2D =[];
         splitText.forEach((line) => {
             line=line.replace("\r", '');
+            line += ".";
             array2D.push(line.split(""));
         })
         return array2D
@@ -61,8 +62,9 @@ class GondolaLift {
 
 }
 
-// const path = "./mockInput.txt";
-// const Lift = new GondolaLift(path);
-// console.log(Lift.addUpAllThePartNumbers());
+// const path = "./day3/input.txt";
+const path = "./input.txt";
+const Lift = new GondolaLift(path);
+console.log(Lift.addUpAllThePartNumbers());
 
 module.exports = GondolaLift;
