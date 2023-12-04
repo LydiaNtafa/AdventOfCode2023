@@ -10,7 +10,7 @@ describe("Gondola Lift", () => {
     it("converts the input to a 2d array", () => {
         const path = "./mockInput.txt";
         const Lift = new GondolaLift(path);
-        expect(Lift.addUpAllThePartNumbers()).toEqual([
+        expect(Lift.convertDocTo2DArray()).toEqual([
             ['4', '6', '7', '.','.', '1', '1', '4','.', '.'],
             ['.', '.', '.', '*','.', '.', '.', '.','.', '.'],
             ['.', '.', '3', '5','.', '.', '6', '3','3', '.'],
@@ -23,6 +23,8 @@ describe("Gondola Lift", () => {
             ['.', '6', '6', '4','.', '5', '9', '8','.', '.']
         ]);
     })
+
+    
 
 
 })
