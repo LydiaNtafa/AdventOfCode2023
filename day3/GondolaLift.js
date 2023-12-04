@@ -62,7 +62,6 @@ class GondolaLift {
 
 }
 
-// const path = "./day3/input.txt";
 const path = "./input.txt";
 const Lift = new GondolaLift(path);
 console.log(Lift.addUpAllThePartNumbers());
