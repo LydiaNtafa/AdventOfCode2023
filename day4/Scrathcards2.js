@@ -11,13 +11,23 @@ class Scratchcards{
         return input;
     };
 
-    calculatePoints = () => {
+    calculateScratchcards = () => {
         let sum=0;
         const splitText = this.doc.split("\n");
         const arrayOfGameArrays = splitText.map(this.createGameArray);
-        const arrayOfPoints = arrayOfGameArrays.map(this.calculateCardPoints);
-        for (let i = 0; i < arrayOfPoints.length; i++ ) {
-            sum += arrayOfPoints[i];
+        let numberOfCards = new Array(arrayOfGameArrays.length).fill(1);
+        const arrayOfMatches = arrayOfGameArrays.map(this.calculateMatchingNumbers);
+        for (let i = 0; i < arrayOfMatches.length; i++ ) {
+            if (arrayOfMatches[i]>0) {
+                for (let c=0; c<numberOfCards[i]; c++){
+                    for (let j = i+1; j <= arrayOfMatches[i]+i; j++ ){
+                        numberOfCards[j]+=1;
+                    }
+                }
+            }
+        }
+        for (let i = 0; i < numberOfCards.length; i++ ) {
+            sum += numberOfCards[i];
         }
         return sum;
     }
@@ -36,22 +46,14 @@ class Scratchcards{
         return gameArray;
     }
 
-    calculateCardPoints = (array) => {
-        let points = 1;
+    calculateMatchingNumbers = (array) => {
         let intersection = array[0].filter(element => array[1].includes(element));
-        if (intersection.length === 0){
-            points = 0;
-        } else {
-            for (let i = 1; i < intersection.length; i++) {
-                points *= 2;
-            }
-        }
-        return points;
+        return intersection.length;
     }
 }
 
 const path = "./input.txt";
 const Game = new Scratchcards(path);
-console.log(Game.calculatePoints());
+console.log(Game.calculateScratchcards());
 
 module.exports = Scratchcards;
