@@ -51,8 +51,8 @@ class Scratchcards{
 
 }
 
-// const path = "./day4/mockInput.txt";
-// const Game = new Scratchcards(path);
-// console.log(Game.calculatePoints());
+const path = "./input.txt";
+const Game = new Scratchcards(path);
+console.log(Game.calculatePoints());
 
 module.exports = Scratchcards;
