@@ -7,7 +7,7 @@ describe("Scratchcards Game", () => {
         expect(Game.doc).toBeTruthy();
     });
 
-    it("converts each line into 2 arryays of numbers", () => {
+    it("converts each line into 2 arrays of numbers", () => {
         const path = "./mockInput.txt";
         const Game = new Scratchcards(path);
         expect(Game.createGameArray(`Card   1: 41 48 83 86 17 |`+
