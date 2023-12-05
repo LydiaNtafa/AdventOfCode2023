@@ -14,6 +14,7 @@ class Scratchcards{
     calculateWinningPoints = () => {
         const splitText = this.doc.split("\n");
         const arrayOfGameArrays = splitText.map(this.createGameArray);
+        const arrayOfPoints = arrayOfGameArrays.map(this.calculateWinningPoints);
         return arrayOfGameArrays;
     }
 
@@ -31,10 +32,23 @@ class Scratchcards{
         return gameArray;
     }
 
+    calculateWinningPoints = (array) => {
+        let points = 1;
+        let intersection = array[0].filter(element => array[1].includes(element));
+        if (intersection.length === 0){
+            points = 0;
+        } else {
+            for (let i = 1; i < intersection.length; i++) {
+                points *= 2;
+            }
+        }
+        return points;
+    }
+
 }
 
 const path = "./mockInput.txt";
 const Game = new Scratchcards(path);
-console.log(Game.calculateWinningPoints());
+console.log(Game.calculateWinningPoints([[10,22,53,59,44],[69,82,63,72,16,21,14,1]]));
 
 module.exports = Scratchcards;
