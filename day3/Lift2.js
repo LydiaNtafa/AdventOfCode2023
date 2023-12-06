@@ -52,7 +52,12 @@ class GondolaLift {
                 }
             }
         }
-        return gearsAndNumbers;
+        Object.values(gearsAndNumbers).forEach( (numbers) => {
+            if(numbers.length===2){
+                sum+=numbers[0]*numbers[1]
+            }
+        });
+        return sum;
     }
 
     convertDocTo2DArray = () => {
@@ -65,11 +70,9 @@ class GondolaLift {
         })
         return array2D
     }
-
 }
-
-const path = "./mockInput.txt";
-const Lift = new GondolaLift(path);
-console.log(Lift.addUpAllTheGearRatios());
+// const path = "./mockInput.txt";
+// const Lift = new GondolaLift(path);
+// console.log(Lift.addUpAllTheGearRatios());
 
 module.exports = GondolaLift;
