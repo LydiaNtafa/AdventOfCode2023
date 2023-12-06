@@ -71,8 +71,8 @@ class GondolaLift {
         return array2D
     }
 }
-// const path = "./mockInput.txt";
-// const Lift = new GondolaLift(path);
-// console.log(Lift.addUpAllTheGearRatios());
+const path = "./input.txt";
+const Lift = new GondolaLift(path);
+console.log(Lift.addUpAllTheGearRatios());
 
 module.exports = GondolaLift;
